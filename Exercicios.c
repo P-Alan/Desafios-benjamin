@@ -10,7 +10,7 @@ int fim;
 int loop = 1;
 
 // VARIÁVEIS DE CADA QUESTÃO
-int questao_bas, questao_med;
+int questao_bas, questao_med, questao_fib;
 
 //======= BASKHARA =======
 void bhaskara()
@@ -184,7 +184,50 @@ void media()
     }
 }
 
-//
+void fibonacci()
+{
+    while (rodando = 1)
+    {
+        questao_fib = 1;
+        while (questao_fib == 1)
+        {
+            int valor1 = 0, valor2 = 1, valor3;
+            int termos;
+            int contador = 1;
+
+            printf("Digite até que termo da sequência de Fibonacci você quer que imprima: ");
+            scanf("%i", &termos);
+
+            printf("%i° termo: 0\n", contador);
+            contador++;
+
+            printf("%i° termo: 1\n", contador);
+            contador++;
+
+            while (contador <= termos)
+            {
+                valor3 = valor1 + valor2;
+                printf("%i° termo: %i\n", contador, valor3);
+                contador++;
+
+                if (contador > termos)
+                {
+                    valor1 = valor2 + valor3;
+                    printf("%i° termo: %i\n", contador, valor1);
+                    contador++;
+
+                    if (contador > termos)
+                    {
+                        valor2 = valor3 + valor1;
+                        printf("%i° termo: %i\n", contador, valor2);
+                        contador++;
+                    }
+                }
+            }
+        }
+    }
+}
+
 int main()
 {
     while (menu == 1)
@@ -207,17 +250,72 @@ int main()
 
         scanf("%d", &questao);
 
-        if (questao == 1)
+        switch (questao)
         {
+        case 1:
             rodando = 1;
             bhaskara();
             questao = 0;
-        }
-        if (questao == 2)
-        {
+            break;
+
+        case 2:
             rodando = 1;
             media();
             questao = 0;
+            break;
+        case 3:
+            rodando = 1;
+            fibonacci();
+            questao = 0;
+            break;
+        /*case 4:
+            rodando = 1;
+            calculadora();
+            questao = 0;
+            break;
+        case 5:
+            rodando = 1;
+            primo();
+            questao = 0;
+            break;
+        case 6:
+            rodando = 1;
+            palindromo();
+            questao = 0;
+            break;
+        case 7:
+            rodando = 1;
+            dado();
+            questao = 0;
+            break;
+        case 8:
+            rodando = 1;
+            conversor();
+            questao = 0;
+            break;
+        case 9:
+            rodando = 1;
+            formatacao();
+            questao = 0;
+            break;
+        case 10:
+            rodando = 1;
+            senha();
+            questao = 0;
+            break;
+        case 11:
+            rodando = 1;
+            autenticacao();
+            questao = 0;
+            break;
+        case 12:
+            rodando = 1;
+            crescente();
+            questao = 0;
+            break;*/
+        default:
+            printf("\n\n===============\nINSIRA UM VALOR VÁLIDO\n===============\n\n");
+            break;
         }
     }
     return 0;
